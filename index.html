@@ -75,6 +75,14 @@ margin-left:25% !important; margin-right:25% !important;
         <label style="font-size:18px; vertical-align:middle" id="discstats">Loading...</label><br><br>
         <button onclick="opendisc()" style="width:250px; background-color: #5865F2; height:35px; color: white; border: none; cursor: pointer; border-radius: 10px; font-family: Inter; font-size: 16px;"><i class="fab fa-discord" style="font-size:17px;color:white; margin-right:10px"></i>Join the Discord</button>
         </article><br><br>
+        <article>
+        <h1 style="font-size: 35px;">InstaJoe SMP</h1>
+        <hr>
+        <br>
+            <img id="serverpfp" style="width:30%px; height:30%px; border-radius: 10px; vertical-align:middle;" src="a"><br><br>
+        <label style="font-size:18px; vertical-align:middle" id="mcstats">Loading...</label><br><br>
+        <button onclick="opendisc()" style="width:250px; background-color: #5865F2; height:35px; color: white; border: none; cursor: pointer; border-radius: 10px; font-family: Inter; font-size: 16px;"><i class="fab fa-discord" style="font-size:17px;color:white; margin-right:10px"></i>Join the Discord</button>
+        </article><br><br>
 
     
 
@@ -145,6 +153,10 @@ async function fetchData(){
 });
       
     const followdata = await followresponse.json();
+    
+       var a = await fetch("https://api.minetools.eu/ping/instajoesviewersmp.apexmc.co");
+      
+    const mc = await a.json();
 
 
     document.getElementById("pfp").src = data.logo
@@ -181,6 +193,7 @@ link.href = data.logo;
 document.getElementById("stuff").innerHTML = result.replace("<br><br>", "") + "<br><br>"
 document.getElementById("latestfollowers").innerHTML =  "1. <b>" + followdata.data[0].from_login + "</b> (<i>" + followdata.data[0].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br>" +  "2. <b>" + followdata.data[1].from_login + "</b> (<i>" + followdata.data[1].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br>" + "3. <b>" + followdata.data[2].from_login + "</b> (<i>" + followdata.data[2].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br>" + "4. <b>" + followdata.data[3].from_login + "</b> (<i>" + followdata.data[3].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br>"  + "5. <b>" + followdata.data[4].from_login + "</b> (<i>" + followdata.data[4].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br><br>"
 
+    document.getElementById("serverpfp").src = mc.favicon
 }
 
 function opentwitch(){
