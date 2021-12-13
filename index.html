@@ -71,7 +71,7 @@ margin-left:25% !important; margin-right:25% !important;
         <h1 style="font-size: 35px;">Discord</h1>
         <hr>
         <br>
-            <img id="dsc" style="width:20%; height:20%; border-radius: 10px; vertical-align:middle;" src="a"><br><br>
+            <img id="dsc" style="width:25%; height:25%; border-radius: 10px; vertical-align:middle;" src="a"><br><br>
         <label style="font-size:18px; vertical-align:middle" id="discstats">Loading...</label><br><br>
         <button onclick="opendisc()" style="width:250px; background-color: #5865F2; height:35px; color: white; border: none; cursor: pointer; border-radius: 10px; font-family: Inter; font-size: 16px;"><i class="fab fa-discord" style="font-size:17px;color:white; margin-right:10px"></i>Join the Discord</button>
         </article><br><br>
@@ -79,7 +79,7 @@ margin-left:25% !important; margin-right:25% !important;
         <h1 style="font-size: 35px;">InstaJoe SMP</h1>
         <hr>
         <br>
-            <img id="serverpfp" style="width:20%; height:20%; border-radius: 10px; vertical-align:middle;" src="a"><br><br>
+            <img id="serverpfp" style="width:25%; height:25%; border-radius: 10px; vertical-align:middle;" src="a"><br><br>
         <label style="font-size:18px; vertical-align:middle" id="mcstats">Loading...</label><br><br>
         <button onclick="opendisc()" style="width:250px; background-color: #5865F2; height:35px; color: white; border: none; cursor: pointer; border-radius: 10px; font-family: Inter; font-size: 16px;"><i class="fab fa-discord" style="font-size:17px;color:white; margin-right:10px"></i>Join the Discord</button>
         </article><br><br>
@@ -194,8 +194,13 @@ document.getElementById("stuff").innerHTML = result.replace("<br><br>", "") + "<
 document.getElementById("latestfollowers").innerHTML =  "1. <b>" + followdata.data[0].from_login + "</b> (<i>" + followdata.data[0].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br>" +  "2. <b>" + followdata.data[1].from_login + "</b> (<i>" + followdata.data[1].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br>" + "3. <b>" + followdata.data[2].from_login + "</b> (<i>" + followdata.data[2].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br>" + "4. <b>" + followdata.data[3].from_login + "</b> (<i>" + followdata.data[3].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br>"  + "5. <b>" + followdata.data[4].from_login + "</b> (<i>" + followdata.data[4].followed_at.replace(/T/g, " ").replace(/Z/g, "").replace(/-/g, "/") + ")</i><br><br>"
 
     document.getElementById("serverpfp").src = mc.favicon
-        document.getElementById("mcstats").innerHTML = "<label style=\"font-size:24px\"><b>" + mc.description + "</b></label><br><br><label style=\"font-size:18px;\"><i>" + discdata.guild.welcome_screen.description + "</i></label><br><br><label style=\"font-size:21px\"><i class=\"fas fa-user\" style=\"font-size:17px;color:#747F8D; margin-right:10px\"></i><b>" + discdata.approximate_member_count + "</b></label><label style=\"font-size:18px; margin-left:5px\">Members</label><br><label style=\"font-size:21px\"><i class=\"fas fa-user\" style=\"font-size:17px;color:#3BA55D; margin-right:10px\"></i><b>" + discdata.approximate_presence_count + "</b></label><label style=\"font-size:18px; margin-left:5px\">Members Online</label>"
+    let tests = mc.description.replace(/§b/g, "<font style=\"color:#55FFFF\">").replace(/§d/g, "<font style=\"color:#FF55FF\">").replace(/§f/g, "<font style=\"color:white\">").replace(/§2/g, "<font style=\"color:#00AA00\">") + "<font style=\"color:white\">"
+        document.getElementById("mcstats").innerHTML = "<label style=\"font-size:22px\"><b>" + tests + "</b></label><br><br><label style=\"font-size:18px;\"><i>" + discdata.guild.welcome_screen.description + "</i></label><br><br><label style=\"font-size:21px\"><i class=\"fas fa-user\" style=\"font-size:17px;color:#747F8D; margin-right:10px\"></i><b>" + discdata.approximate_member_count + "</b></label><label style=\"font-size:18px; margin-left:5px\">Members</label><br><label style=\"font-size:21px\"><i class=\"fas fa-user\" style=\"font-size:17px;color:#3BA55D; margin-right:10px\"></i><b>" + discdata.approximate_presence_count + "</b></label><label style=\"font-size:18px; margin-left:5px\">Members Online</label>"
 
+    const colours = mc.description.split("§")
+    for (let i = 0; i < colours.length; i++) {
+        console.log(colours)
+    }
 }
 
 function opentwitch(){
